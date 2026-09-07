@@ -1,0 +1,205 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: radial-gradient(circle at center, #091a29 0%, #05101a 50%, #02070c 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.5s ease-out 0.2s, transform 0.7s ease-out;
+  user-select: none;
+}
+
+.overlayExiting {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.circleWrapper {
+  width: min(85vw, 480px);
+  aspect-ratio: 1 / 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.75s ease-out, opacity 0.75s ease-out;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 0 24px rgba(255, 190, 40, 0.45)) drop-shadow(0 0 50px rgba(56, 189, 248, 0.25));
+}
+
+.circleExiting {
+  transform: scale(2.8) !important;
+  opacity: 0 !important;
+}
+
+/* Layer Animations */
+.outerRunicRing {
+  transform-origin: 250px 250px;
+  animation: rotateClockwise 22s linear infinite;
+  will-change: transform;
+}
+
+.innerSkillRing {
+  transform-origin: 250px 250px;
+  animation: rotateCounterClockwise 28s linear infinite;
+  will-change: transform;
+}
+
+.radiantRays {
+  transform-origin: 250px 250px;
+  animation: rotateClockwise 60s linear infinite;
+  will-change: transform;
+}
+
+.coreGlow {
+  transform-origin: 250px 250px;
+  animation: pulseCore 1.8s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+@keyframes rotateClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateCounterClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes pulseCore {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+/* Dialogue HUD Styling */
+.dialogueHud {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(90vw, 680px);
+  text-align: center;
+  font-family: var(--font-geist-mono), "Courier New", Courier, monospace;
+  letter-spacing: 2px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.noticeTag {
+  color: #ffd24d;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2.5vw, 1.25rem);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 0 0 12px rgba(255, 210, 77, 0.8), 0 0 24px rgba(255, 190, 40, 0.4);
+  animation: noticeBlink 2.5s ease-in-out infinite;
+}
+
+.lineContent {
+  color: #e2f1ff;
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  line-height: 1.6;
+  min-height: 1.8rem;
+  text-shadow: 0 0 8px rgba(125, 211, 252, 0.5);
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.1em;
+  background-color: #ffd24d;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: cursorBlink 0.8s steps(2, start) infinite;
+  box-shadow: 0 0 8px rgba(255, 210, 77, 0.8);
+}
+
+@keyframes noticeBlink {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 12px rgba(255, 210, 77, 0.8), 0 0 24px rgba(255, 190, 40, 0.4);
+  }
+  50% {
+    opacity: 0.75;
+    text-shadow: 0 0 4px rgba(255, 210, 77, 0.4);
+  }
+}
+
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Skip Button */
+.skipButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10001;
+  background: rgba(9, 26, 41, 0.7);
+  border: 1px solid rgba(255, 210, 77, 0.35);
+  color: #ffd24d;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.skipButton:hover {
+  background: rgba(255, 210, 77, 0.15);
+  border-color: #ffd24d;
+  box-shadow: 0 0 14px rgba(255, 210, 77, 0.5);
+  transform: translateY(-1px);
+}
+
+.skipHint {
+  font-size: 0.7rem;
+  color: rgba(226, 241, 255, 0.45);
+  letter-spacing: 1px;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .outerRunicRing,
+  .innerSkillRing,
+  .radiantRays,
+  .coreGlow,
+  .noticeTag,
+  .cursor {
+    animation: none !important;
+  }
+
+  .circleWrapper,
+  .overlay {
+    transition: opacity 0.3s ease !important;
+  }
+}
