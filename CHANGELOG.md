@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.1] - 2026-09-07
+
+### Fixed & Improved
+- **Universal Resilient Scroll Reveal Engine**:
+  - Re-architected [`ScrollReveal.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/ui/ScrollReveal.tsx) with a native `IntersectionObserver`, generous entry margin (`150px`), hardware-accelerated CSS `translate3d` transitions, and an unconditional 800ms fallback safety timer.
+  - Completely resolves blank section rendering on deployed environments (such as Vercel), guaranteeing that `[Core Skills]`, `[Project Portfolio]`, `[Growth & Evolution]`, and `[Thought Communication]` reveal reliably across all browsers.
+- **Above-The-Fold Hero Mount Animation**:
+  - Replaced scroll-dependent `whileInView` with direct mount animation (`animate={{ opacity: 1 }}`) in [`HeroSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/hero/HeroSection.tsx), ensuring the headline, Existence Value bar, and portrait fade in immediately without waiting for user scroll.
+- **System Version Indicators**:
+  - Bumped version to `v1.0.1` in [`package.json`](file:///d:/System%20Projects/JAJulveLabs/package.json) and updated the status badge in [`Footer.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/Footer.tsx).
+
+---
+
 ## [1.0.0] - 2026-09-07
 
 ### Production Release — JAJulveLabs Developer Portfolio & Tensura Great Sage Architecture
@@ -33,8 +46,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Global smooth scrolling (`scroll-smooth`) and sticky navbar scroll offset (`scroll-pt-24`).
 
 #### Changed & Improved
-- **Above-The-Fold Hero Mount Animation**:
-  - Replaced scroll-dependent `whileInView` with direct mount animation (`animate={{ opacity: 1 }}`) in [`HeroSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/hero/HeroSection.tsx) and lowered viewport threshold (`amount: 0`) in [`ScrollReveal.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/ui/ScrollReveal.tsx) to prevent content remaining locked at `opacity: 0` on initial load.
 - **Flexible Project Metrics Architecture**:
   - Made `metrics` optional (`metrics?:`) in [`ProjectItem`](file:///d:/System%20Projects/JAJulveLabs/src/data/portfolioData.ts).
   - Updated [`ProjectsSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/projects/ProjectsSection.tsx) to conditionally render the metrics box only when metrics exist and contain entries, allowing projects to omit or comment out metrics cleanly without type errors or layout artifacts.
