@@ -33,6 +33,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Global smooth scrolling (`scroll-smooth`) and sticky navbar scroll offset (`scroll-pt-24`).
 
 #### Changed & Improved
+- **Above-The-Fold Hero Mount Animation**:
+  - Replaced scroll-dependent `whileInView` with direct mount animation (`animate={{ opacity: 1 }}`) in [`HeroSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/hero/HeroSection.tsx) and lowered viewport threshold (`amount: 0`) in [`ScrollReveal.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/ui/ScrollReveal.tsx) to prevent content remaining locked at `opacity: 0` on initial load.
 - **Flexible Project Metrics Architecture**:
   - Made `metrics` optional (`metrics?:`) in [`ProjectItem`](file:///d:/System%20Projects/JAJulveLabs/src/data/portfolioData.ts).
   - Updated [`ProjectsSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/projects/ProjectsSection.tsx) to conditionally render the metrics box only when metrics exist and contain entries, allowing projects to omit or comment out metrics cleanly without type errors or layout artifacts.

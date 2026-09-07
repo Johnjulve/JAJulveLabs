@@ -1,10 +1,8 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Terminal, Shield, Zap } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 interface HeroSectionProps {
   onReplayIntro: () => void;
@@ -21,7 +19,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onReplayIntro }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
         
         {/* LEFT COLUMN: Glint Typographic Punch & Tensura System Telemetry */}
-        <ScrollReveal direction="right" duration={0.7} className="lg:col-span-7 flex flex-col items-start text-left space-y-6">
+        <motion.div
+          initial={{ opacity: 0, x: -35 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="lg:col-span-7 flex flex-col items-start text-left space-y-6"
+        >
           
           {/* Section 1 Marker from Image 3 */}
           <div className="flex flex-wrap items-center gap-2.5">
@@ -112,10 +115,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onReplayIntro }) => {
               Continuous Doc Sync
             </span>
           </div>
-        </ScrollReveal>
+        </motion.div>
 
         {/* RIGHT COLUMN: Glint Hero Cutout Framed in Great Sage Concentric Rings */}
-        <ScrollReveal direction="left" duration={0.8} delay={0.1} className="lg:col-span-5 flex items-center justify-center relative">
+        <motion.div
+          initial={{ opacity: 0, x: 35 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="lg:col-span-5 flex items-center justify-center relative"
+        >
           
           {/* Outer Rotating Great Sage Concentric Rings */}
           <div className="relative w-[340px] sm:w-[420px] aspect-square flex items-center justify-center">
@@ -151,7 +159,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onReplayIntro }) => {
               <span>UniversalTester Core</span>
             </div>
           </div>
-        </ScrollReveal>
+        </motion.div>
 
       </div>
     </section>
