@@ -19,6 +19,12 @@
 - **Modern Design System**: Semantic color tokens, glassmorphism, responsive mobile-first layouts, and smooth micro-interactions via **Framer Motion**.
 - **Performance & Accessibility**: 100/100 Core Web Vitals target, zero layout shift (CLS), semantic HTML5 hierarchy, and reduced-motion fallbacks.
 
+### 🚀 Release Highlights (v1.1.0)
+- **Top Cybernetic Mana Scroll Progress Bar**: Luminous telemetry line tracking scroll depth across the entire portfolio using physics-smoothed springs.
+- **Bidirectional Repeating Scroll Transitions**: Framer Motion viewport reveal triggers that smoothly replay when scrolling back up and down (`once: false`).
+- **Centered Hero Scroll Prompt**: Centered `"SCROLL TO EXPLORE ARCHIVES"` prompt at the bottom of the hero section.
+- **Aligned Evolution Timeline**: Scaled, concentric milestone node aligned with the vertical gradient beam.
+
 ---
 
 ## Tech Stack

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Terminal, Shield, Zap } from "lucide-react";
+import { ArrowRight, Sparkles, Terminal, Shield, Zap, ChevronDown } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 
 interface HeroSectionProps {
@@ -10,7 +10,7 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onReplayIntro }) => {
   return (
-    <section id="hero" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-12 lg:py-20">
+    <section id="hero" className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden py-12 lg:py-20">
       {/* Background ambient lighting */}
       <div className="absolute top-1/3 left-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/4 right-10 w-96 h-96 bg-sky-500/10 rounded-full blur-[140px] pointer-events-none" />
@@ -162,6 +162,31 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onReplayIntro }) => {
         </motion.div>
 
       </div>
+
+      {/* Animated Scroll Down Indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.9, duration: 0.8 }}
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 hidden md:flex"
+      >
+        <a
+          href="#skills"
+          className="group inline-flex flex-col items-center gap-1 text-slate-500 hover:text-emerald-400 transition-colors"
+          aria-label="Scroll to explore archives"
+        >
+          <span className="text-[10px] font-mono tracking-[0.2em] uppercase group-hover:tracking-[0.25em] transition-all">
+            Scroll to Explore Archives
+          </span>
+          <motion.div
+            animate={{ y: [0, 5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="p-1 rounded-full border border-slate-800 bg-slate-950/80 group-hover:border-emerald-500/40 shadow-[0_0_10px_rgba(16,185,129,0.15)]"
+          >
+            <ChevronDown className="w-3.5 h-3.5 text-emerald-400" />
+          </motion.div>
+        </a>
+      </motion.div>
     </section>
   );
 };

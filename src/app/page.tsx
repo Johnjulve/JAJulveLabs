@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { RaphaelIntro } from "@/components/intro";
+import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar";
 import { TopTicker } from "@/components/layout/TopTicker";
 import { Navbar } from "@/components/layout/Navbar";
 import { HeroSection } from "@/features/hero/HeroSection";
@@ -26,6 +27,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#02070c] text-slate-100 flex flex-col selection:bg-emerald-500 selection:text-slate-950">
+      {/* Top Cybernetic Mana Scroll Progress Bar */}
+      <ScrollProgressBar />
+
       {/* Tensura (Raphael / Voice of the World) Intro Screen */}
       <RaphaelIntro
         key={replayKey}

@@ -7,16 +7,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.0] - 2026-09-07
+
+### Added
+- **Top Cybernetic Mana Scroll Progress Bar** ([`ScrollProgressBar.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/ui/ScrollProgressBar.tsx)):
+  - Fixed top telemetry progress bar powered by Framer Motion's `useScroll` and `useSpring` physics smoothing (`stiffness: 140, damping: 30`).
+  - Luminous cyan-to-emerald-to-amber mana gradient with a glowing leading-edge beacon that responds dynamically to page scroll depth.
+- **Hero Scroll Exploration Prompt** ([`HeroSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/hero/HeroSection.tsx)):
+  - Centered bottom scroll cue (`"SCROLL TO EXPLORE ARCHIVES"`) with a pulsing emerald chevron guiding visitors into the Skills Matrix.
+- **Stagger Container Animation Helpers** ([`ScrollReveal.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/ui/ScrollReveal.tsx)):
+  - Exported `ScrollStaggerContainer` and `ScrollStaggerItem` utilities for clean cascading reveals across grid components.
+
+### Changed & Improved
+- **Bidirectional Repeating Scroll Transitions (`once: false`)**:
+  - Re-architected [`ScrollReveal.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/ui/ScrollReveal.tsx) with Framer Motion (`motion.div`) and `once = false` to ensure animations re-trigger whenever users scroll up or down.
+  - Implemented asymmetric exits (`0.25s` with 0 delay) for instant resets upon viewport exit, paired with smooth cinematic entrances (`ease: [0.22, 1, 0.36, 1]`) on re-entry.
+- **Centered Hero Section Layout**:
+  - Configured `<section id="hero">` with `flex-col` and positioned the scroll cue with `absolute bottom-4 left-1/2 -translate-x-1/2 z-20`, eliminating horizontal displacement between the hero grid, portrait cutout, and scroll indicator.
+- **Timeline Marker Alignment & Scaled Node** ([`EvolutionSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/evolution/EvolutionSection.tsx)):
+  - Aligned marker node coordinates (`left-6 sm:left-8 -translate-x-1/2`) to sit concentric with the vertical gradient line (`before:left-6 sm:before:left-8`), eliminating the 10px offset.
+  - Scaled the marker node to `w-11 sm:w-12` and the `Milestone` icon to `w-5 sm:w-6` with an inner Great Sage concentric ring and enhanced neon aura (`shadow-[0_0_22px_rgba(16,185,129,0.7)]`).
+  - Vertically aligned the marker node to `top-6 sm:top-7` level with the milestone card header.
+- **System Version Indicators**:
+  - Bumped version to `v1.1.0` across [`package.json`](file:///d:/System%20Projects/JAJulveLabs/package.json) and [`Footer.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/Footer.tsx).
+
+---
+
 ## [1.0.1] - 2026-09-07
 
-### Fixed & Improved
-- **Universal Resilient Scroll Reveal Engine**:
-  - Re-architected [`ScrollReveal.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/ui/ScrollReveal.tsx) with a native `IntersectionObserver`, generous entry margin (`150px`), hardware-accelerated CSS `translate3d` transitions, and an unconditional 800ms fallback safety timer.
-  - Completely resolves blank section rendering on deployed environments (such as Vercel), guaranteeing that `[Core Skills]`, `[Project Portfolio]`, `[Growth & Evolution]`, and `[Thought Communication]` reveal reliably across all browsers.
+- **Dynamic Scroll-Driven Section Transitions**:
+  - Re-architected [`ScrollReveal.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/ui/ScrollReveal.tsx) to dynamically trigger as the user scrolls into each section.
+  - Implemented a cyberpunk/anime unblur-scale-slide transition (`translate3d(0, 36px, 0) scale(0.97) blur(4px) -> translate3d(0, 0, 0) scale(1) blur(0px)`) with spring-like cubic-bezier easing (`cubic-bezier(0.16, 1, 0.3, 1)`).
+  - Paired IntersectionObserver with a real-time window scroll listener fallback so content always triggers smoothly without getting stuck.
+- **Cascading Skill & Project Card Waves**:
+  - Wrapped each card in [`TensuraSkillsMatrix.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/skills/TensuraSkillsMatrix.tsx) in individual staggered scroll reveals (`delay={index * 0.08}s`), creating a fluid cascade as visitors scroll into Ultimate, Intrinsic, and Extra skills.
 - **Above-The-Fold Hero Mount Animation**:
-  - Replaced scroll-dependent `whileInView` with direct mount animation (`animate={{ opacity: 1 }}`) in [`HeroSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/hero/HeroSection.tsx), ensuring the headline, Existence Value bar, and portrait fade in immediately without waiting for user scroll.
+  - Direct mount animation in [`HeroSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/hero/HeroSection.tsx) so the headline, Existence Value bar, and portrait are instantly active.
 - **System Version Indicators**:
-  - Bumped version to `v1.0.1` in [`package.json`](file:///d:/System%20Projects/JAJulveLabs/package.json) and updated the status badge in [`Footer.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/Footer.tsx).
+  - Bumped version to `v1.0.1` in [`package.json`](file:///d:/System%20Projects/JAJulveLabs/package.json) and [`Footer.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/Footer.tsx).
 
 ---
 

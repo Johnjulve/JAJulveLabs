@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { PORTFOLIO_DATA, SkillItem } from "@/data/portfolioData";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -47,60 +45,66 @@ export const TensuraSkillsMatrix: React.FC = () => {
     }[accent];
 
     return (
-      <div
+      <ScrollReveal
         key={`${skill.category}-${index}`}
-        className={`relative bg-slate-900/60 border ${accentClasses.border} ${accentClasses.shadow} rounded-2xl p-5 backdrop-blur-md transition-all duration-300 flex flex-col justify-between group`}
+        direction="up"
+        delay={index * 0.08}
+        className="h-full"
       >
-        {/* Top Header */}
-        <div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <div className={`p-2.5 rounded-xl bg-slate-950 border border-slate-800 ${accentClasses.icon} shadow-inner`}>
-              <IconComponent className="w-5 h-5" />
-            </div>
-            <span className={`text-[11px] font-mono px-2.5 py-0.5 rounded-full border ${accentClasses.tag}`}>
-              {skill.proficiency}% PROFICIENCY
-            </span>
-          </div>
-
-          <div>
-            <h4 className="text-base font-bold text-white group-hover:text-slate-100 transition-colors">
-              [{skill.name}]
-            </h4>
-            <p className="text-xs text-slate-400 font-light mt-1 line-clamp-2 leading-relaxed">
-              {skill.description}
-            </p>
-          </div>
-        </div>
-
-        {/* Bottom Tags & Gauge */}
-        <div className="mt-4 space-y-3 pt-3 border-t border-slate-800/80">
-          {/* Progress Bar */}
-          <div className="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden">
-            <div
-              className={`h-full bg-gradient-to-r ${accentClasses.bar} rounded-full`}
-              style={{ width: `${skill.proficiency}%` }}
-            />
-          </div>
-
-          <div className="flex flex-wrap gap-1.5">
-            {skill.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-[10px] font-mono text-slate-400 bg-slate-950/60 border border-slate-800 px-2 py-0.5 rounded"
-              >
-                #{tag}
+        <div
+          className={`h-full relative bg-slate-900/60 border ${accentClasses.border} ${accentClasses.shadow} rounded-2xl p-5 backdrop-blur-md transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5`}
+        >
+          {/* Top Header */}
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <div className={`p-2.5 rounded-xl bg-slate-950 border border-slate-800 ${accentClasses.icon} shadow-inner`}>
+                <IconComponent className="w-5 h-5" />
+              </div>
+              <span className={`text-[11px] font-mono px-2.5 py-0.5 rounded-full border ${accentClasses.tag}`}>
+                {skill.proficiency}% PROFICIENCY
               </span>
-            ))}
+            </div>
+
+            <div>
+              <h4 className="text-base font-bold text-white group-hover:text-slate-100 transition-colors">
+                [{skill.name}]
+              </h4>
+              <p className="text-xs text-slate-400 font-light mt-1 line-clamp-2 leading-relaxed">
+                {skill.description}
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom Tags & Gauge */}
+          <div className="mt-4 space-y-3 pt-3 border-t border-slate-800/80">
+            {/* Progress Bar */}
+            <div className="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden">
+              <div
+                className={`h-full bg-gradient-to-r ${accentClasses.bar} rounded-full`}
+                style={{ width: `${skill.proficiency}%` }}
+              />
+            </div>
+
+            <div className="flex flex-wrap gap-1.5">
+              {skill.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[10px] font-mono text-slate-400 bg-slate-950/60 border border-slate-800 px-2 py-0.5 rounded"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     );
   };
 
   return (
     <section id="skills" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-16">
-        
+
         {/* Section Header */}
         <ScrollReveal direction="up">
           <div className="text-center space-y-3 max-w-2xl mx-auto">
@@ -117,8 +121,8 @@ export const TensuraSkillsMatrix: React.FC = () => {
         </ScrollReveal>
 
         {/* 1. ULTIMATE SKILLS (Gold Aura) */}
-        <ScrollReveal direction="up" delay={0.1}>
-          <div className="space-y-4">
+        <div className="space-y-4">
+          <ScrollReveal direction="left">
             <div className="flex items-center gap-3">
               <div className="w-3 h-3 rounded-full bg-amber-400 shadow-[0_0_10px_rgba(255,210,77,0.8)]" />
               <h3 className="font-mono text-sm sm:text-base font-bold text-amber-300 tracking-wider uppercase">
@@ -126,17 +130,17 @@ export const TensuraSkillsMatrix: React.FC = () => {
               </h3>
               <div className="flex-1 h-px bg-gradient-to-r from-amber-500/40 to-transparent" />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {PORTFOLIO_DATA.skills.ultimate.map((skill, idx) =>
-                renderSkillCard(skill, idx, "amber")
-              )}
-            </div>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {PORTFOLIO_DATA.skills.ultimate.map((skill, idx) =>
+              renderSkillCard(skill, idx, "amber")
+            )}
           </div>
-        </ScrollReveal>
+        </div>
 
         {/* 2. INTRINSIC SKILLS (Cyan Aura) */}
-        <ScrollReveal direction="up" delay={0.15}>
-          <div className="space-y-4">
+        <div className="space-y-4">
+          <ScrollReveal direction="left">
             <div className="flex items-center gap-3">
               <div className="w-3 h-3 rounded-full bg-sky-400 shadow-[0_0_10px_rgba(56,189,248,0.8)]" />
               <h3 className="font-mono text-sm sm:text-base font-bold text-sky-300 tracking-wider uppercase">
@@ -144,17 +148,17 @@ export const TensuraSkillsMatrix: React.FC = () => {
               </h3>
               <div className="flex-1 h-px bg-gradient-to-r from-sky-500/40 to-transparent" />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {PORTFOLIO_DATA.skills.intrinsic.map((skill, idx) =>
-                renderSkillCard(skill, idx, "sky")
-              )}
-            </div>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {PORTFOLIO_DATA.skills.intrinsic.map((skill, idx) =>
+              renderSkillCard(skill, idx, "sky")
+            )}
           </div>
-        </ScrollReveal>
+        </div>
 
         {/* 3. EXTRA SKILLS (Emerald Aura) */}
-        <ScrollReveal direction="up" delay={0.2}>
-          <div className="space-y-4">
+        <div className="space-y-4">
+          <ScrollReveal direction="left">
             <div className="flex items-center gap-3">
               <div className="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.8)]" />
               <h3 className="font-mono text-sm sm:text-base font-bold text-emerald-300 tracking-wider uppercase">
@@ -162,13 +166,13 @@ export const TensuraSkillsMatrix: React.FC = () => {
               </h3>
               <div className="flex-1 h-px bg-gradient-to-r from-emerald-500/40 to-transparent" />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {PORTFOLIO_DATA.skills.extra.map((skill, idx) =>
-                renderSkillCard(skill, idx, "emerald")
-              )}
-            </div>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {PORTFOLIO_DATA.skills.extra.map((skill, idx) =>
+              renderSkillCard(skill, idx, "emerald")
+            )}
           </div>
-        </ScrollReveal>
+        </div>
 
       </div>
     </section>

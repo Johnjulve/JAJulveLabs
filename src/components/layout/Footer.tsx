@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
                 JAJULVELABS
               </span>
               <span className="text-[10px] font-mono font-semibold text-emerald-400 bg-emerald-950/70 border border-emerald-500/40 px-2.5 py-0.5 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.2)]">
-                v1.0.1
+                v1.1.0
               </span>
             </div>
             <span className="text-[10px] font-mono text-slate-400">

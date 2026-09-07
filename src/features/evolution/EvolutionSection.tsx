@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import { CheckCircle2, Milestone } from "lucide-react";
@@ -9,7 +7,7 @@ export const EvolutionSection: React.FC = () => {
   return (
     <section id="evolution" className="py-20 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-8 space-y-12">
-        
+
         {/* Section Header */}
         <ScrollReveal direction="up">
           <div className="text-center space-y-3 max-w-xl mx-auto">
@@ -26,13 +24,14 @@ export const EvolutionSection: React.FC = () => {
         </ScrollReveal>
 
         {/* Milestones Timeline */}
-        <div className="space-y-6 relative before:absolute before:inset-0 before:left-6 sm:before:left-8 before:w-0.5 before:bg-gradient-to-b before:from-emerald-500 before:via-sky-500 before:to-transparent">
+        <div className="space-y-8 relative before:absolute before:inset-y-0 before:left-6 sm:before:left-8 before:w-0.5 before:bg-gradient-to-b before:from-emerald-500 via-sky-500 before:to-transparent">
           {PORTFOLIO_DATA.evolution.map((item, idx) => (
             <ScrollReveal key={idx} direction="left" delay={idx * 0.15}>
-              <div className="relative pl-14 sm:pl-20 space-y-3">
+              <div className="relative pl-16 sm:pl-24 space-y-3">
                 {/* Timeline Marker Node */}
-                <div className="absolute left-3.5 sm:left-5.5 -translate-x-1/2 top-1.5 w-6 h-6 rounded-full bg-slate-950 border-2 border-emerald-400 flex items-center justify-center shadow-[0_0_12px_rgba(16,185,129,0.6)]">
-                  <Milestone className="w-3 h-3 text-emerald-400" />
+                <div className="absolute left-6 sm:left-8 -translate-x-1/2 top-6 sm:top-7 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#02070c] border-2 border-emerald-400 flex items-center justify-center shadow-[0_0_22px_rgba(16,185,129,0.7)] z-10 transition-transform group-hover:scale-110">
+                  <div className="absolute inset-0.5 rounded-full border border-sky-400/30" />
+                  <Milestone className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400 drop-shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
                 </div>
 
                 {/* Card */}

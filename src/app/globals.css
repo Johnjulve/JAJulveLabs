@@ -29,3 +29,65 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes animeRevealUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 32px, 0) scale(0.97);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes animeRevealLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(32px, 0, 0) scale(0.97);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes animeRevealRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(-32px, 0, 0) scale(0.97);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+.reveal-active-up {
+  animation: animeRevealUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.reveal-active-left {
+  animation: animeRevealLeft 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.reveal-active-right {
+  animation: animeRevealRight 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-active-up,
+  .reveal-active-left,
+  .reveal-active-right {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
