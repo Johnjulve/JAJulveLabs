@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Sparkles, Menu, X } from "lucide-react";
+import { Sparkles, Menu, X, Mail } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 
 interface NavbarProps {
@@ -41,23 +42,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onReplayIntro }) => {
 
   return (
     <header className="sticky top-0 z-40 w-full bg-[#030a12]/90 backdrop-blur-md border-b border-sky-900/40 transition-all">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between gap-4 lg:gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4 lg:gap-6">
         {/* Brand Logo & Great Sage Emblem */}
-        <a href="#hero" className="flex items-center gap-3 group shrink-0">
-          <div className="relative w-10 h-10 rounded-full border-2 border-emerald-400/80 bg-slate-950 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.35)] group-hover:scale-105 transition-transform shrink-0">
+        <a href="#hero" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+          <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-emerald-400/80 bg-slate-950 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.35)] group-hover:scale-105 transition-transform shrink-0">
             <span className="text-emerald-400 font-bold font-mono text-xs tracking-tighter">GS</span>
             <div className="absolute inset-0 rounded-full border border-sky-400/40 animate-spin" style={{ animationDuration: "12s" }} />
           </div>
           <div className="flex flex-col justify-center">
-            <div className="flex items-center gap-2">
-              <span className="font-bold text-base sm:text-lg tracking-wider text-white group-hover:text-emerald-300 transition-colors uppercase whitespace-nowrap">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="font-bold text-sm sm:text-base lg:text-lg tracking-wider text-white group-hover:text-emerald-300 transition-colors uppercase whitespace-nowrap">
                 {PORTFOLIO_DATA.profile.alias}
               </span>
-              <span className="text-[10px] font-mono font-semibold text-emerald-400 bg-emerald-950/70 border border-emerald-500/40 px-2 py-0.5 rounded-md whitespace-nowrap tracking-wider shadow-[0_0_10px_rgba(16,185,129,0.2)]">
+              <span className="text-[9px] sm:text-[10px] font-mono font-semibold text-emerald-400 bg-emerald-950/70 border border-emerald-500/40 px-1.5 sm:px-2 py-0.5 rounded-md whitespace-nowrap tracking-wider shadow-[0_0_10px_rgba(16,185,129,0.2)]">
                 {PORTFOLIO_DATA.profile.rank}
               </span>
             </div>
-            <span className="text-[10px] font-mono text-slate-400 tracking-wider uppercase whitespace-nowrap">
+            <span className="text-[9px] sm:text-[10px] font-mono text-slate-400 tracking-wider uppercase whitespace-nowrap">
               {PORTFOLIO_DATA.profile.title}
             </span>
           </div>
@@ -111,29 +112,70 @@ export const Navbar: React.FC<NavbarProps> = ({ onReplayIntro }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-[#030a12] border-b border-sky-900/60 px-6 py-6 space-y-3">
-          {NAV_LINKS.map((link) => (
+        <div className="xl:hidden bg-[#030a12]/98 backdrop-blur-xl border-b border-sky-900/60 px-5 py-5 space-y-4 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-150">
+          <div className="space-y-1">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block font-mono text-xs text-slate-200 hover:text-emerald-400 py-2.5 px-3 rounded-md hover:bg-emerald-950/30 border-b border-slate-900/80 transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          <div className="pt-2 flex flex-col gap-2.5">
             <a
-              key={link.href}
-              href={link.href}
+              href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="block font-mono text-sm text-slate-200 hover:text-emerald-400 py-2 border-b border-slate-900"
+              className="w-full inline-flex justify-center items-center gap-2 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-xs font-bold tracking-wider transition-all duration-150 shadow-[0_0_15px_rgba(16,185,129,0.35)]"
             >
-              {link.label}
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>» Contact Me</span>
             </a>
-          ))}
-          <div className="pt-2">
+
             <button
               type="button"
               onClick={() => {
                 setMobileMenuOpen(false);
                 onReplayIntro();
               }}
-              className="w-full inline-flex justify-center items-center gap-2 py-2 rounded-lg border border-amber-400/40 bg-amber-950/30 text-amber-300 text-xs font-mono"
+              className="w-full inline-flex justify-center items-center gap-2 py-2.5 rounded-lg border border-amber-400/40 bg-amber-950/30 hover:bg-amber-950/50 text-amber-300 text-xs font-mono transition-all duration-150"
             >
-              <Sparkles className="w-3.5 h-3.5" />
-              Replay Raphael Intro
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>Replay Raphael Intro</span>
             </button>
+
+            {/* Mobile Socials */}
+            <div className="flex items-center justify-center gap-6 pt-2 border-t border-slate-900 text-slate-400">
+              <a
+                href={PORTFOLIO_DATA.profile.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-emerald-400 transition-colors p-2"
+                aria-label="GitHub Profile"
+              >
+                <GithubIcon className="w-4 h-4" />
+              </a>
+              <a
+                href={PORTFOLIO_DATA.profile.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-emerald-400 transition-colors p-2"
+                aria-label="LinkedIn Profile"
+              >
+                <LinkedinIcon className="w-4 h-4" />
+              </a>
+              <a
+                href={`mailto:${PORTFOLIO_DATA.profile.socials.email}`}
+                className="hover:text-emerald-400 transition-colors p-2"
+                aria-label="Send Email"
+              >
+                <Mail className="w-4 h-4" />
+              </a>
+            </div>
           </div>
         </div>
       )}

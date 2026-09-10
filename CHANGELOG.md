@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.1] - 2026-09-10
+
+### Fixed
+- **Mobile Top Header Layout & Ticker Wrapping** ([`TopTicker.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/TopTicker.tsx)):
+  - Eliminated awkward flex-wrapping that forced socials and contact buttons onto an orphaned second line with empty left space on narrow screens.
+  - Formatted `TopTicker` as a single, sleek, compact cybernetic announcement bar with `min-w-0` graceful text truncation (`truncate`).
+  - Streamlined mobile ticker presentation by moving the bulky desktop contact button to `sm:inline-flex`, maintaining quick-tap social icons (GitHub, LinkedIn, Email) on the bar.
+- **Next.js Dev Indicator Collision** ([`next.config.ts`](file:///d:/System%20Projects/JAJulveLabs/next.config.ts)):
+  - Disabled the Next.js dev indicator overlay badge (`devIndicators: false`) to prevent it from floating over and obscuring the top-left `« NOTICE »` beacon in the ticker and the `GS` logo emblem in the sticky navbar during development.
+- **Responsive Header Proportions & Mobile Drawer Actions** ([`Navbar.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/Navbar.tsx)):
+  - Adjusted header height to `h-16 sm:h-20` for balanced mobile vertical real-estate.
+  - Enriched the mobile navigation drawer with a prominent full-width `» Contact Me` action, direct social links (GitHub, LinkedIn, Email), and Raphael replay controls.
+
 ## [1.1.0] - 2026-09-07
 
 ### Added
