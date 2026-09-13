@@ -72,6 +72,8 @@ export const VoiceOfTheWorldHUD: React.FC<VoiceOfTheWorldHUDProps> = ({
     let charIndex = 0;
     const fullText = currentLine.text;
 
+    let advanceTimer: ReturnType<typeof setTimeout> | undefined;
+
     const typeInterval = setInterval(() => {
       charIndex++;
       setDisplayedText(fullText.slice(0, charIndex));
@@ -81,18 +83,17 @@ export const VoiceOfTheWorldHUD: React.FC<VoiceOfTheWorldHUDProps> = ({
         setIsTyping(false);
 
         // Hold line before advancing to next line
-        const advanceTimer = setTimeout(() => {
+        advanceTimer = setTimeout(() => {
           setCurrentLineIndex((prev) => prev + 1);
           setDisplayedText("");
         }, 750);
-
-        return () => clearTimeout(advanceTimer);
       }
     }, 34);
 
     return () => {
       clearTimeout(startTypingTimer);
       clearInterval(typeInterval);
+      if (advanceTimer) clearTimeout(advanceTimer);
     };
   }, [currentLineIndex, onComplete, isExiting]);
 

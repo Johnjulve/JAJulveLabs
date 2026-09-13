@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.2] - 2026-09-13
+
+### Fixed
+- **Dangling Timer Cleanup in Dialogue Typewriter** ([`VoiceOfTheWorldHUD.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/intro/VoiceOfTheWorldHUD.tsx)):
+  - Hoisted `advanceTimer` to the top-level `useEffect` scope so that skips or unmounts immediately cancel pending timeouts, preventing memory leaks and state updates on unmounted components.
+- **Form Submission Input Reset** ([`ContactSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/contact/ContactSection.tsx)):
+  - Automatically clears form fields with `form.reset()` upon thought transmission submission.
+
+### Added
+- **Zod Data Validation Contract Layer** ([`portfolioSchema.ts`](file:///d:/System%20Projects/JAJulveLabs/src/lib/schemas/portfolioSchema.ts)):
+  - Implemented runtime validation schemas (`SkillItemSchema`, `ProjectItemSchema`, `EvolutionMilestoneSchema`, `PortfolioDataSchema`) and linked `PORTFOLIO_DATA` to `PortfolioDataSchema.parse(...)`, bringing codebase into 100% synchronization with `ARCHITECTURE.md`.
+- **Reduced Motion Accessibility** ([`ScrollReveal.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/ui/ScrollReveal.tsx)):
+  - Integrated `useReducedMotion` across `ScrollReveal`, `ScrollStaggerContainer`, and `ScrollStaggerItem` to bypass translations, blurs, and delays when `prefers-reduced-motion` is requested.
+- **Rich OpenGraph & Social Metadata** ([`layout.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/app/layout.tsx)):
+  - Added OpenGraph, Twitter card, keywords, and author tags for rich preview rendering on Discord, LinkedIn, and GitHub.
+
+### Changed & Refactored
+- **Conditional Class Handling** ([`Navbar.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/Navbar.tsx)):
+  - Refactored raw template string ternaries to use the centralized `cn` utility from [`@/lib/utils`](file:///d:/System%20Projects/JAJulveLabs/src/lib/utils.ts).
+- **Skill Card Theme Memoization** ([`TensuraSkillsMatrix.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/skills/TensuraSkillsMatrix.tsx)):
+  - Hoisted the static `ACCENT_THEMES` dictionary outside the component function scope to eliminate redundant object allocations on every render.
+- **Dead CSS Keyframe Elimination** ([`globals.css`](file:///d:/System%20Projects/JAJulveLabs/src/app/globals.css)):
+  - Purged 60 lines of orphaned `@keyframes animeReveal*` and `.reveal-active-*` classes superseded by Framer Motion in v1.1.0.
+- **Version Bump**:
+  - Bumped to `v1.1.2` across [`package.json`](file:///d:/System%20Projects/JAJulveLabs/package.json) and [`Footer.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/Footer.tsx).
+
 ## [1.1.1] - 2026-09-10
 
 ### Fixed

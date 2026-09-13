@@ -63,6 +63,13 @@ The intro component is organized into 4 distinct modular layers:
 
 ## 3. Data Integrity & Validation
 
-All portfolio content is decoupled from UI presentation and validated through **Zod**:
-- `src/lib/schemas/`: Contains validation schemas for projects, skills, and experience.
-- `src/data/`: Single source of truth. Any schema violation generates build-time and runtime type warnings.
+All portfolio content is decoupled from UI presentation and strictly validated through **Zod**:
+- `src/lib/schemas/portfolioSchema.ts`: Contains runtime validation schemas (`SkillItemSchema`, `ProjectItemSchema`, `EvolutionMilestoneSchema`, `PortfolioDataSchema`).
+- `src/data/portfolioData.ts`: Single source of truth. Validated at module load and build time via `PortfolioDataSchema.parse(...)`. Any schema violation terminates compilation with diagnostic error details.
+
+---
+
+## 4. Motion & Accessibility Architecture
+
+- **Scroll Reveal Pipeline**: Powered by Framer Motion (`ScrollReveal.tsx`) utilizing `useReducedMotion`. When OS accessibility motion suppression is active, animations, transforms, and blur filters are immediately bypassed.
+- **Mana Scroll Depth Bar**: Physics-smoothed scroll depth telemetry rendered with `useScroll` and `useSpring` on a GPU-accelerated `scaleX` transform.

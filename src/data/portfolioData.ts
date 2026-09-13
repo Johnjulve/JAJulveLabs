@@ -1,39 +1,15 @@
-export interface SkillItem {
-  name: string;
-  category: "Intrinsic" | "Extra" | "Ultimate";
-  iconName: string;
-  proficiency: number;
-  description: string;
-  tags: string[];
-}
+import {
+  PortfolioDataSchema,
+  type SkillItem,
+  type ProjectItem,
+  type EvolutionMilestone,
+  type Profile,
+  type PortfolioData,
+} from "@/lib/schemas/portfolioSchema";
 
-export interface ProjectItem {
-  id: string;
-  title: string;
-  tagline: string;
-  classification: string;
-  epValue: string;
-  description: string;
-  architectureHighlights: string[];
-  techStack: string[];
-  githubUrl?: string;
-  liveUrl?: string;
-  metrics?: {
-    label: string;
-    value: string;
-  }[];
-}
+export type { SkillItem, ProjectItem, EvolutionMilestone, Profile, PortfolioData };
 
-export interface EvolutionMilestone {
-  period: string;
-  title: string;
-  rank: string;
-  organization: string;
-  description: string;
-  achievements: string[];
-}
-
-export const PORTFOLIO_DATA = {
+const rawPortfolioData = {
   profile: {
     name: "Johnjulve",
     alias: "JAJulveLabs",
@@ -212,3 +188,5 @@ export const PORTFOLIO_DATA = {
     },
   ],
 };
+
+export const PORTFOLIO_DATA: PortfolioData = PortfolioDataSchema.parse(rawPortfolioData);

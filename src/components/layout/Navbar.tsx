@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Sparkles, Menu, X, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
+import { cn } from "@/lib/utils";
 
 interface NavbarProps {
   onReplayIntro: () => void;
@@ -73,11 +74,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onReplayIntro }) => {
                 {idx > 0 && <span className="text-sky-800 text-xs select-none px-0.5">•</span>}
                 <a
                   href={link.href}
-                  className={`px-3 py-1 font-mono text-xs rounded-full whitespace-nowrap transition-all duration-200 ${
+                  className={cn(
+                    "px-3 py-1 font-mono text-xs rounded-full whitespace-nowrap transition-all duration-200",
                     isActive
                       ? "text-emerald-400 bg-emerald-950/60 border border-emerald-500/40 shadow-[0_0_10px_rgba(16,185,129,0.3)] font-semibold"
                       : "text-slate-300 hover:text-emerald-400 hover:bg-emerald-950/30"
-                  }`}
+                  )}
                 >
                   {link.label}
                 </a>

@@ -16,33 +16,34 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Binary,
 };
 
+const ACCENT_THEMES = {
+  sky: {
+    border: "border-sky-500/30 hover:border-sky-400/60",
+    shadow: "hover:shadow-[0_0_20px_rgba(56,189,248,0.25)]",
+    tag: "text-sky-400 bg-sky-950/40 border-sky-500/30",
+    icon: "text-sky-400",
+    bar: "from-sky-500 to-cyan-400",
+  },
+  emerald: {
+    border: "border-emerald-500/30 hover:border-emerald-400/60",
+    shadow: "hover:shadow-[0_0_20px_rgba(16,185,129,0.25)]",
+    tag: "text-emerald-400 bg-emerald-950/40 border-emerald-500/30",
+    icon: "text-emerald-400",
+    bar: "from-emerald-500 to-teal-400",
+  },
+  amber: {
+    border: "border-amber-500/40 hover:border-amber-400/80",
+    shadow: "hover:shadow-[0_0_25px_rgba(255,210,77,0.3)]",
+    tag: "text-amber-300 bg-amber-950/40 border-amber-500/40",
+    icon: "text-amber-400",
+    bar: "from-amber-500 via-yellow-400 to-amber-300",
+  },
+} as const;
+
 export const TensuraSkillsMatrix: React.FC = () => {
   const renderSkillCard = (skill: SkillItem, index: number, accent: "sky" | "emerald" | "amber") => {
     const IconComponent = ICON_MAP[skill.iconName] || Cpu;
-
-    const accentClasses = {
-      sky: {
-        border: "border-sky-500/30 hover:border-sky-400/60",
-        shadow: "hover:shadow-[0_0_20px_rgba(56,189,248,0.25)]",
-        tag: "text-sky-400 bg-sky-950/40 border-sky-500/30",
-        icon: "text-sky-400",
-        bar: "from-sky-500 to-cyan-400",
-      },
-      emerald: {
-        border: "border-emerald-500/30 hover:border-emerald-400/60",
-        shadow: "hover:shadow-[0_0_20px_rgba(16,185,129,0.25)]",
-        tag: "text-emerald-400 bg-emerald-950/40 border-emerald-500/30",
-        icon: "text-emerald-400",
-        bar: "from-emerald-500 to-teal-400",
-      },
-      amber: {
-        border: "border-amber-500/40 hover:border-amber-400/80",
-        shadow: "hover:shadow-[0_0_25px_rgba(255,210,77,0.3)]",
-        tag: "text-amber-300 bg-amber-950/40 border-amber-500/40",
-        icon: "text-amber-400",
-        bar: "from-amber-500 via-yellow-400 to-amber-300",
-      },
-    }[accent];
+    const accentClasses = ACCENT_THEMES[accent];
 
     return (
       <ScrollReveal

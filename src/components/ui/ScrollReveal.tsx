@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 
 export type RevealDirection = "up" | "down" | "left" | "right" | "zoom" | "blur" | "none";
 
@@ -76,6 +76,12 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   once = false, // Set to false so animations re-trigger when scrolling back
   amount = 0.12,
 }) => {
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   const variants = getVariants(direction, distance, duration, delay);
 
   return (
@@ -108,6 +114,12 @@ export const ScrollStaggerContainer: React.FC<ScrollStaggerContainerProps> = ({
   once = false,
   amount = 0.12,
 }) => {
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   const containerVariants: Variants = {
     hidden: {
       opacity: 0,
@@ -152,6 +164,12 @@ export const ScrollStaggerItem: React.FC<ScrollStaggerItemProps> = ({
   duration = 0.6,
   className = "",
 }) => {
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   const itemVariants = getVariants(direction, distance, duration, 0);
 
   return (

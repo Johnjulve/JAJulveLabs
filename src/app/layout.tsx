@@ -16,9 +16,38 @@ export const metadata: Metadata = {
   title: "JAJulveLabs | Johnjulve - Systems & Full-Stack Engineering",
   description:
     "Personal engineering portfolio of Johnjulve showcasing high-performance architectures, automated testing harnesses, and resilient full-stack systems.",
+  authors: [{ name: "Johnjulve", url: "https://github.com/Johnjulve" }],
+  keywords: [
+    "Johnjulve",
+    "JAJulveLabs",
+    "Software Engineer",
+    "Full-Stack Developer",
+    "Next.js 15",
+    "TypeScript",
+    "UniversalTester",
+    "E_Botar",
+    "Clean Architecture",
+  ],
+  openGraph: {
+    title: "JAJulveLabs | Johnjulve - Systems & Full-Stack Engineering",
+    description:
+      "Personal engineering portfolio of Johnjulve showcasing high-performance architectures, automated testing harnesses, and resilient full-stack systems.",
+    type: "website",
+    siteName: "JAJulveLabs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JAJulveLabs | Johnjulve - Systems & Full-Stack Engineering",
+    description:
+      "Personal engineering portfolio of Johnjulve showcasing high-performance architectures, automated testing harnesses, and resilient full-stack systems.",
+  },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="en"
