@@ -13,7 +13,8 @@ export const ScrollProgressBar: React.FC = () => {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 h-[3px] z-50 pointer-events-none bg-slate-950/40 backdrop-blur-xs"
+      className="fixed left-0 right-0 h-[3px] z-50 pointer-events-none bg-slate-950/40 backdrop-blur-xs"
+      style={{ top: "env(safe-area-inset-top, 0px)" }}
       aria-hidden="true"
     >
       {/* Dynamic Mana / Energy Progress Line */}

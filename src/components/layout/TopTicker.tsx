@@ -5,7 +5,10 @@ import { PORTFOLIO_DATA } from "@/data/portfolioData";
 
 export const TopTicker: React.FC = () => {
   return (
-    <div className="w-full bg-[#05101a] border-b border-sky-950/60 text-slate-300 text-xs py-1.5 sm:py-2 px-3 sm:px-8 flex items-center justify-between gap-3 z-50">
+    <div
+      className="w-full bg-[#05101a] border-b border-sky-950/60 text-slate-300 text-xs py-1.5 sm:py-2 px-3 sm:px-8 flex items-center justify-between gap-3 z-50"
+      style={{ paddingTop: "calc(0.375rem + env(safe-area-inset-top, 0px))" }}
+    >
       {/* Left side: System Announcement Ticker */}
       <div className="flex items-center gap-2 sm:gap-2.5 min-w-0 overflow-hidden shrink">
         <span className="flex h-2 w-2 relative shrink-0">

@@ -17,6 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Hoisted `advanceTimer` to the top-level `useEffect` scope so that skips or unmounts immediately cancel pending timeouts, preventing memory leaks and state updates on unmounted components.
 - **Form Submission Input Reset** ([`ContactSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/contact/ContactSection.tsx)):
   - Automatically clears form fields with `form.reset()` upon thought transmission submission.
+- **Mobile Sticky Header Sibling Offset & Safe-Area Resolution** ([`page.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/app/page.tsx), [`Navbar.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/Navbar.tsx), [`layout.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/app/layout.tsx)):
+  - Eliminated the mobile WebKit and Chromium sticky coordinate bug where `<header>` inside a `flex flex-col` parent inherited a negative vertical offset equal to the preceding sibling `<TopTicker>`'s height (29px) on scroll.
+  - Normalized page layout to standard block document flow so `position: sticky; top: 0` calculates strictly against the scrolling viewport.
+  - Configured Next.js `Viewport` with `viewportFit: "cover"` and safe area insets (`env(safe-area-inset-top)`) guaranteeing full vertical clearance on notched and camera punch-hole mobile screens.
 
 ### Added
 - **Zod Data Validation Contract Layer** ([`portfolioSchema.ts`](file:///d:/System%20Projects/JAJulveLabs/src/lib/schemas/portfolioSchema.ts)):

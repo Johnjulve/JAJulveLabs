@@ -26,7 +26,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#02070c] text-slate-100 flex flex-col selection:bg-emerald-500 selection:text-slate-950">
+    <div className="min-h-screen bg-[#02070c] text-slate-100 selection:bg-emerald-500 selection:text-slate-950">
       {/* Top Cybernetic Mana Scroll Progress Bar */}
       <ScrollProgressBar />
 
@@ -44,7 +44,7 @@ export default function Home() {
       <Navbar onReplayIntro={handleReplayIntro} />
 
       {/* Main Content Layout */}
-      <main className="flex-1 flex flex-col">
+      <main className="w-full">
         {/* 3. Hero Section (Glint Split Layout + Great Sage Avatar Frame + EP Bar) */}
         <HeroSection onReplayIntro={handleReplayIntro} />
 
