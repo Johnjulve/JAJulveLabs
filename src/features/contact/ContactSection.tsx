@@ -29,8 +29,9 @@ export const ContactSection: React.FC = () => {
         {/* Section Header */}
         <ScrollReveal direction="up">
           <div className="text-center space-y-3 max-w-xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-950/40 text-emerald-400 text-xs font-mono tracking-wider">
-              <span>« SECTION 5: THOUGHT COMMUNICATION »</span>
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-emerald-400 tracking-wider">
+              <span className="text-slate-600 font-mono">{"//"}</span>
+              <span className="uppercase tracking-widest font-semibold">05. THOUGHT COMMUNICATION</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
               COMMENCE <span className="text-emerald-400">TRANSMISSION</span>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { X, Sparkles, ChevronRight } from "lucide-react";
 
 const RAPHAEL_QUOTES = [
@@ -16,6 +16,18 @@ export const RaphaelAssistant: React.FC = () => {
   const [quoteIndex, setQuoteIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(true);
 
+  // Auto-collapse dialogue bubble on mobile scroll to maintain viewport clarity
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth < 768 && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isOpen]);
+
   const handleNextQuote = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     setQuoteIndex((prev) => (prev + 1) % RAPHAEL_QUOTES.length);
@@ -28,11 +40,11 @@ export const RaphaelAssistant: React.FC = () => {
   return (
     <aside
       aria-label="Raphael Wisdom Lord Assistant"
-      className="fixed bottom-6 left-6 z-40 flex flex-col items-start select-none pointer-events-auto"
+      className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-40 flex flex-col items-start select-none pointer-events-auto"
     >
       {/* Speech Bubble - Floats directly ABOVE the avatar without displacing it horizontally */}
       {isOpen && (
-        <div className="mb-3 relative w-80 max-w-[calc(100vw-3rem)] bg-[#040d16]/95 border border-sky-500/40 rounded-2xl p-4 text-xs text-sky-100 shadow-[0_0_25px_rgba(56,189,248,0.25)] backdrop-blur-md animate-in fade-in slide-in-from-bottom-2 duration-200">
+        <div className="mb-3 relative w-[calc(100vw-2.5rem)] sm:w-80 max-w-[340px] bg-[#040d16]/95 border border-sky-500/40 rounded-2xl p-4 text-xs text-sky-100 shadow-[0_0_25px_rgba(56,189,248,0.25)] backdrop-blur-md animate-in fade-in slide-in-from-bottom-2 duration-200">
           <div className="flex items-center justify-between pb-2 mb-2 border-b border-sky-950">
             <div className="flex items-center gap-1.5 text-amber-400 font-mono text-[10px] tracking-wider uppercase font-bold">
               <Sparkles className="w-3 h-3 text-amber-400 animate-spin" style={{ animationDuration: "8s" }} />

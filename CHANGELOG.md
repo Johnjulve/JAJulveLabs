@@ -27,6 +27,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added OpenGraph, Twitter card, keywords, and author tags for rich preview rendering on Discord, LinkedIn, and GitHub.
 
 ### Changed & Refactored
+- **Hero Conversion CTA & Telemetry Eyebrow** ([`HeroSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/hero/HeroSection.tsx)):
+  - Replaced redundant "Replay Intro" button with direct conversion action `» COMMENCE CONTACT` pointing to `#contact`.
+  - Refactored bulky capsule badge into a sleek cybernetic telemetry eyebrow `// 01. PROFESSIONAL PROFILE`.
+- **Minimalist Telemetry Section Eyebrows**:
+  - Replaced repetitive capsule banners across [`TensuraSkillsMatrix.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/skills/TensuraSkillsMatrix.tsx), [`ProjectsSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/projects/ProjectsSection.tsx), [`EvolutionSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/evolution/EvolutionSection.tsx), and [`ContactSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/contact/ContactSection.tsx) with unified `// 0X.` telemetry markers.
+- **Interactive Skills Matrix Filtering** ([`TensuraSkillsMatrix.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/skills/TensuraSkillsMatrix.tsx)):
+  - Introduced interactive category filter pills (`All Capabilities`, `Ultimate`, `Intrinsic`, `Extra`) allowing visitors to filter technical domains and cutting mobile vertical scroll fatigue.
+- **Assistant Mobile Ergonomics** ([`SlimeAssistant.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/SlimeAssistant.tsx)):
+  - Configured dialogue bubble to automatically collapse on mobile scroll, ensuring thumb ergonomics and preventing occlusion of interactive inputs.
 - **Conditional Class Handling** ([`Navbar.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/Navbar.tsx)):
   - Refactored raw template string ternaries to use the centralized `cn` utility from [`@/lib/utils`](file:///d:/System%20Projects/JAJulveLabs/src/lib/utils.ts).
 - **Skill Card Theme Memoization** ([`TensuraSkillsMatrix.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/skills/TensuraSkillsMatrix.tsx)):

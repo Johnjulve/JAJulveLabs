@@ -1,14 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Terminal, Shield, Zap, ChevronDown } from "lucide-react";
+import { ArrowRight, Mail, Terminal, Shield, Zap, ChevronDown } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 
 interface HeroSectionProps {
-  onReplayIntro: () => void;
+  onReplayIntro?: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onReplayIntro }) => {
+export const HeroSection: React.FC<HeroSectionProps> = () => {
   return (
     <section id="hero" className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden py-12 lg:py-20">
       {/* Background ambient lighting */}
@@ -26,13 +26,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onReplayIntro }) => {
           className="lg:col-span-7 flex flex-col items-start text-left space-y-6"
         >
           
-          {/* Section 1 Marker from Image 3 */}
-          <div className="flex flex-wrap items-center gap-2.5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/40 text-emerald-400 text-xs font-mono tracking-widest shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              <span>SECTION 1: PROFESSIONAL PROFILE</span>
+          {/* Section Telemetry Eyebrow */}
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 tracking-wider">
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              </span>
+              <span className="text-slate-500 font-mono">{"//"}</span>
+              <span className="font-semibold uppercase tracking-widest">01. PROFESSIONAL PROFILE</span>
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-sky-500/30 bg-sky-950/40 text-sky-300 text-xs font-mono">
+            <span className="text-slate-700 hidden sm:inline">•</span>
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md border border-sky-500/30 bg-sky-950/40 text-sky-300 text-[11px] font-mono">
               <span>{PORTFOLIO_DATA.profile.title}</span>
             </div>
           </div>
@@ -78,7 +83,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onReplayIntro }) => {
 
           {/* Action Buttons */}
           <div className="flex flex-wrap items-center gap-4 pt-4">
-            {/* Glint-style Emerald Button */}
+            {/* Primary Emerald Button */}
             <a
               href="#projects"
               className="inline-flex items-center gap-3 px-7 py-4 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold font-mono text-sm tracking-wider uppercase transition-all duration-200 shadow-[0_0_25px_rgba(16,185,129,0.45)] hover:scale-105 active:scale-95 group"
@@ -89,15 +94,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onReplayIntro }) => {
               </span>
             </a>
 
-            {/* Replay Intro Button */}
-            <button
-              type="button"
-              onClick={onReplayIntro}
-              className="inline-flex items-center gap-2.5 px-6 py-4 rounded-lg border border-amber-400/40 bg-amber-950/20 hover:bg-amber-950/40 text-amber-300 hover:text-amber-200 font-mono text-sm tracking-wide transition-all duration-200 shadow-[0_0_15px_rgba(255,210,77,0.2)] hover:scale-105"
+            {/* Direct Contact Transmission CTA */}
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2.5 px-6 py-4 rounded-lg border border-sky-500/40 bg-sky-950/30 hover:bg-sky-950/50 text-sky-300 hover:text-sky-200 font-mono text-sm tracking-wide transition-all duration-200 shadow-[0_0_18px_rgba(56,189,248,0.15)] hover:scale-105 active:scale-95 group"
             >
-              <Sparkles className="w-4 h-4 text-amber-400" />
-              <span>Replay Raphael Intro</span>
-            </button>
+              <Mail className="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform" />
+              <span>COMMENCE CONTACT</span>
+            </a>
           </div>
 
           {/* Quick Stats Pills */}

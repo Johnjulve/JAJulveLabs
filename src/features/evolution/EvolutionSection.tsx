@@ -11,8 +11,9 @@ export const EvolutionSection: React.FC = () => {
         {/* Section Header */}
         <ScrollReveal direction="up">
           <div className="text-center space-y-3 max-w-xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-sky-500/30 bg-sky-950/40 text-sky-400 text-xs font-mono tracking-wider">
-              <span>« SECTION 4: EVOLUTION TIMELINE »</span>
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-sky-400 tracking-wider">
+              <span className="text-slate-600 font-mono">{"//"}</span>
+              <span className="uppercase tracking-widest font-semibold">04. EVOLUTION TIMELINE</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
               GROWTH & <span className="text-emerald-400">EVOLUTION</span>
