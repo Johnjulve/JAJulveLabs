@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.2] - 2026-09-13
 
 ### Fixed
+- **SSR Hydration Mismatch Resolution** ([`ScrollReveal.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/ui/ScrollReveal.tsx) & [`globals.css`](file:///d:/System%20Projects/JAJulveLabs/src/app/globals.css)):
+  - Eliminated client-only `useReducedMotion()` JSX branching in `ScrollReveal` which returned a unstyled `<div>` on the client when Windows OS animations were disabled, diverging from the server-rendered `<motion.div style="...">`.
+  - Enforced zero-mismatch motion suppression directly via CSS `@media (prefers-reduced-motion: reduce)` in `globals.css`.
 - **Dangling Timer Cleanup in Dialogue Typewriter** ([`VoiceOfTheWorldHUD.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/intro/VoiceOfTheWorldHUD.tsx)):
   - Hoisted `advanceTimer` to the top-level `useEffect` scope so that skips or unmounts immediately cancel pending timeouts, preventing memory leaks and state updates on unmounted components.
 - **Form Submission Input Reset** ([`ContactSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/contact/ContactSection.tsx)):
