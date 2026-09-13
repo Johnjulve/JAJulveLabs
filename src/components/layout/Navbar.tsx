@@ -43,7 +43,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onReplayIntro }) => {
 
   return (
     <header
-      className="sticky top-0 z-40 w-full bg-[#030a12]/90 backdrop-blur-md border-b border-sky-900/40 transition-colors duration-200"
+      className="sticky top-0 z-40 w-full max-w-full overflow-x-clip bg-[#030a12]/90 backdrop-blur-md border-b border-sky-900/40 transition-colors duration-200"
       style={{ top: 0, paddingTop: "env(safe-area-inset-top, 0px)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4 lg:gap-6">

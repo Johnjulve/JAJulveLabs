@@ -10,10 +10,10 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = () => {
   return (
-    <section id="hero" className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden py-12 lg:py-20">
+    <section id="hero" className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden py-12 lg:py-20 w-full max-w-full">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/3 left-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/4 right-10 w-96 h-96 bg-sky-500/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 left-0 sm:left-10 w-72 sm:w-96 h-72 sm:h-96 max-w-full bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 sm:right-10 w-72 sm:w-96 h-72 sm:h-96 max-w-full bg-sky-500/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#02070c] to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
@@ -130,7 +130,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
         >
           
           {/* Outer Rotating Great Sage Concentric Rings */}
-          <div className="relative w-[340px] sm:w-[420px] aspect-square flex items-center justify-center">
+          <div className="relative w-[300px] sm:w-[420px] max-w-[calc(100vw-2.5rem)] aspect-square flex items-center justify-center">
             
             {/* Concentric Golden & Cyan Magic Rings */}
             <div className="absolute inset-0 rounded-full border-2 border-dashed border-sky-400/30 animate-spin" style={{ animationDuration: "35s" }} />
@@ -141,7 +141,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
             <div className="absolute inset-12 rounded-full bg-gradient-to-b from-sky-500/20 via-emerald-500/15 to-transparent blur-xl" />
 
             {/* High-Resolution User Portrait Cutout with Smooth Bottom Fade */}
-            <div className="relative w-[280px] sm:w-[340px] h-[380px] sm:h-[460px] flex items-end justify-center z-10 [mask-image:linear-gradient(to_bottom,black_65%,transparent_98%)] [-webkit-mask-image:linear-gradient(to_bottom,black_65%,transparent_98%)]">
+            <div className="relative w-[250px] sm:w-[340px] max-w-full h-[350px] sm:h-[460px] flex items-end justify-center z-10 [mask-image:linear-gradient(to_bottom,black_65%,transparent_98%)] [-webkit-mask-image:linear-gradient(to_bottom,black_65%,transparent_98%)]">
               <Image
                 src="/images/profile.png"
                 alt={`${PORTFOLIO_DATA.profile.name} - ${PORTFOLIO_DATA.profile.title}`}
@@ -153,12 +153,12 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
             </div>
 
             {/* Floating RPG Status Badges */}
-            <div className="absolute -top-2 right-2 bg-slate-950/90 border border-emerald-500/50 rounded-xl px-3 py-1.5 text-emerald-300 font-mono text-xs shadow-[0_0_15px_rgba(16,185,129,0.3)] backdrop-blur-md z-20 flex items-center gap-1.5 whitespace-nowrap">
+            <div className="absolute -top-2 right-0 sm:right-2 bg-slate-950/90 border border-emerald-500/50 rounded-xl px-2.5 sm:px-3 py-1 sm:py-1.5 text-emerald-300 font-mono text-[11px] sm:text-xs shadow-[0_0_15px_rgba(16,185,129,0.3)] backdrop-blur-md z-20 flex items-center gap-1.5 whitespace-nowrap">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
               <span>{PORTFOLIO_DATA.profile.rank}</span>
             </div>
 
-            <div className="absolute bottom-6 -left-4 bg-slate-950/90 border border-sky-500/50 rounded-xl px-3 py-1.5 text-sky-300 font-mono text-xs shadow-[0_0_15px_rgba(56,189,248,0.3)] backdrop-blur-md z-20 flex items-center gap-1.5">
+            <div className="absolute bottom-4 sm:bottom-6 left-0 sm:-left-4 bg-slate-950/90 border border-sky-500/50 rounded-xl px-2.5 sm:px-3 py-1 sm:py-1.5 text-sky-300 font-mono text-[11px] sm:text-xs shadow-[0_0_15px_rgba(56,189,248,0.3)] backdrop-blur-md z-20 flex items-center gap-1.5">
               <Terminal className="w-3.5 h-3.5 text-sky-400" />
               <span>UniversalTester Core</span>
             </div>
