@@ -19,6 +19,10 @@ const rawPortfolioData = {
     epProgress: 88,
     status: "Active • Available for Strategic Roles",
     location: "Surigao City, Philippines",
+    headline: {
+      highlight: "ENGINEERING",
+      rest: "IS MORE CRITICAL THAN CONVENTION",
+    },
     tagline: "IMAGINATION & RIGOR",
     subheadline: "ARCHITECTING RESILIENT HIGH-PERFORMANCE SYSTEMS",
     bio: "Specializing in polyglot test execution harnesses, modular full-stack web platforms, and continuous engineering discipline. Turning complex distributed requirements into elegant, type-safe, and self-documenting codebases.",

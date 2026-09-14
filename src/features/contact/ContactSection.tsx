@@ -37,7 +37,7 @@ export const ContactSection: React.FC = () => {
               COMMENCE <span className="text-emerald-400">TRANSMISSION</span>
             </h2>
             <p className="text-slate-400 text-sm font-light">
-              Open for strategic architectural roles, full-stack leadership, and specialized engineering collaborations.
+              {PORTFOLIO_DATA.profile.status} • {PORTFOLIO_DATA.profile.location}
             </p>
           </div>
         </ScrollReveal>
@@ -53,7 +53,7 @@ export const ContactSection: React.FC = () => {
                   Direct Protocols
                 </h3>
                 <p className="text-slate-400 text-xs leading-relaxed font-light">
-                  Transmissions are received directly by Johnjulve. Telemetry channels are active and monitored.
+                  Transmissions are received directly by {PORTFOLIO_DATA.profile.name}. Telemetry channels are active and monitored.
                 </p>
 
                 <div className="pt-2 space-y-3">
@@ -95,7 +95,7 @@ export const ContactSection: React.FC = () => {
 
               <div className="p-3.5 rounded-xl bg-emerald-950/30 border border-emerald-500/30 text-emerald-300 text-[11px] font-mono flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Existence Value (EP) verified: 1,250,000+</span>
+                <span>Existence Value (EP) verified: {PORTFOLIO_DATA.profile.existenceValue}</span>
               </div>
             </div>
 

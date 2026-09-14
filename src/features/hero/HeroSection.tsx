@@ -45,14 +45,17 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
           {/* Glint-inspired Massive Headline */}
           <div className="space-y-2">
             <div className="font-mono text-xs text-sky-400 tracking-[0.25em] uppercase">
-              « {PORTFOLIO_DATA.profile.name} • {PORTFOLIO_DATA.profile.title} »
+              « {PORTFOLIO_DATA.profile.name} • {PORTFOLIO_DATA.profile.tagline} »
             </div>
             <h1 className="text-4xl sm:text-6xl xl:text-7xl font-black tracking-tight text-white leading-[1.08] uppercase">
               <span className="text-emerald-400 drop-shadow-[0_0_20px_rgba(16,185,129,0.4)]">
-                ENGINEERING
+                {PORTFOLIO_DATA.profile.headline.highlight}
               </span>{" "}
-              IS MORE CRITICAL THAN CONVENTION
+              {PORTFOLIO_DATA.profile.headline.rest}
             </h1>
+            <p className="font-mono text-xs sm:text-sm text-emerald-400/90 tracking-wider uppercase font-semibold">
+              {"//"} {PORTFOLIO_DATA.profile.subheadline}
+            </p>
           </div>
 
           {/* Existence Value (EP) Bar from Tensura Concept */}

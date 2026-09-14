@@ -1,5 +1,6 @@
 import React from "react";
 import { Terminal, Shield } from "lucide-react";
+import { PORTFOLIO_DATA } from "@/data/portfolioData";
 
 export const Footer: React.FC = () => {
   return (
@@ -13,8 +14,8 @@ export const Footer: React.FC = () => {
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-2">
-              <span className="font-bold text-white font-mono text-sm tracking-wider">
-                JAJULVELABS
+              <span className="font-bold text-white font-mono text-sm tracking-wider uppercase">
+                {PORTFOLIO_DATA.profile.alias}
               </span>
               <span className="text-[10px] font-mono font-semibold text-emerald-400 bg-emerald-950/70 border border-emerald-500/40 px-2.5 py-0.5 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.2)]">
                 v1.1.2
@@ -41,7 +42,7 @@ export const Footer: React.FC = () => {
 
         {/* Copyright */}
         <div className="text-xs font-mono text-slate-400 text-center sm:text-right">
-          © {new Date().getFullYear()} Johnjulve (JAJulveLabs). All rights reserved.
+          © {new Date().getFullYear()} {PORTFOLIO_DATA.profile.name} ({PORTFOLIO_DATA.profile.alias}). All rights reserved.
         </div>
 
       </div>

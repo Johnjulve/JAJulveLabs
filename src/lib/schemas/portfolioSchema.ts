@@ -43,6 +43,11 @@ export const ProfileSocialsSchema = z.object({
   email: z.string().email(),
 });
 
+export const ProfileHeadlineSchema = z.object({
+  highlight: z.string(),
+  rest: z.string(),
+});
+
 export const ProfileSchema = z.object({
   name: z.string(),
   alias: z.string(),
@@ -52,6 +57,7 @@ export const ProfileSchema = z.object({
   epProgress: z.number().min(0).max(100),
   status: z.string(),
   location: z.string(),
+  headline: ProfileHeadlineSchema,
   tagline: z.string(),
   subheadline: z.string(),
   bio: z.string(),
