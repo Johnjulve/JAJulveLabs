@@ -11,14 +11,37 @@ export type { SkillItem, ProjectItem, EvolutionMilestone, Profile, PortfolioData
 
 const rawPortfolioData = {
   profile: {
-    name: "Johnjulve",
+    name: "John Andrei Julve",
     alias: "JAJulveLabs",
-    title: "Junior Software Developer",
-    rank: "S Class Programmer",
-    existenceValue: "1,250,000+",
-    epProgress: 88,
-    status: "Active • Available for Strategic Roles",
+    title: "Systems & Full-Stack Developer",
+    roleBadge: "Systems & Full-Stack Architect",
+    rank: "Systems & Full-Stack Architect",
+    existenceValue: "Verified Telemetry",
+    epProgress: 100,
+    status: "Active // Available for Strategic Roles",
     location: "Surigao City, Philippines",
+    telemetryMetrics: [
+      {
+        label: "CORE ARCHITECTURE",
+        value: "MODULAR & ADAPTER-BASED",
+        detail: "Zero-dependency test orchestrators & hexagonal domain boundaries",
+      },
+      {
+        label: "TYPE CONTRACTS",
+        value: "STRICT ZERO-ANY",
+        detail: "Strict TypeScript compilation and runtime Zod schema validation",
+      },
+      {
+        label: "GOVERNANCE",
+        value: "CONTINUOUS DOC SYNC",
+        detail: "Automated repo synchronization, ADRs, and forensic audits",
+      },
+      {
+        label: "DEPLOYMENT STATUS",
+        value: "VERIFIED ACTIVE",
+        detail: "Surigao City, Philippines • Open for Full-Stack & Systems Roles",
+      },
+    ],
     headline: {
       highlight: "ENGINEERING",
       rest: "IS MORE CRITICAL THAN CONVENTION",
@@ -130,7 +153,7 @@ const rawPortfolioData = {
       title: "UniversalTester",
       tagline: "Autonomous Polyglot Test Harness & Benchmarking Engine",
       classification: "System Infrastructure",
-      epValue: "480,000 EP",
+      systemBadge: "Native Zero-Dep Core • Polyglot Adapters",
       description:
         "A modular test execution engine featuring a hybrid architecture: a dependency-free native testing engine for algorithm & logic tests paired with an extensible multi-language adapter framework (Python, Node.js/TypeScript, Java, PHP).",
       architectureHighlights: [
@@ -147,7 +170,7 @@ const rawPortfolioData = {
       title: "E_Botar",
       tagline: "Enterprise Full-Stack Voting & Governance Platform",
       classification: "Full-Stack Enterprise",
-      epValue: "520,000 EP",
+      systemBadge: "Enterprise Architecture • v4.0.0 Stable",
       description:
         "A multi-tenant electronic voting system architected with strict separation of frontend state layers, cryptographically verified voter authorization, and real-time ballot aggregation.",
       architectureHighlights: [
@@ -164,7 +187,7 @@ const rawPortfolioData = {
       title: "E_Botar-Lite",
       tagline: "Ultra-Lightweight Micro-Platform for Edge Deployments",
       classification: "Micro-Architecture",
-      epValue: "250,000 EP",
+      systemBadge: "Edge-Optimized Micro-Architecture",
       description:
         "A hyper-optimized variant of E_Botar engineered specifically for low-bandwidth environments, localized server hardware, and edge deployment targets.",
       architectureHighlights: [

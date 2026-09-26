@@ -7,10 +7,99 @@ html {
   max-width: 100vw;
 }
 
+/* =========================================================================
+   RIMURU SLIME CENTRALIZED COLOR PALETTE & THEME SYSTEM
+   Palette Reference:
+   • Light Sky Blue:       #CCE9F6
+   • Azure / Soft Blue:    #93B9E8
+   • Deep Blue Accent:     #3A71A4
+   • Off-White / Highlight: #F7FCFC
+   ========================================================================= */
+
 :root {
-  --background: #02070c;
-  --foreground: #f1f5f9;
+  /* Dark Mode (Default) */
+  --bg-page: #040b14;
+  --bg-section-alt: #071526;
+  --bg-card: #0a1c30;
+  --bg-card-hover: #0f2742;
+  --bg-card-subtle: #071526;
+  --bg-input: #061220;
+  
+  --text-heading: #F7FCFC;
+  --text-body: #CCE9F6;
+  --text-muted: #7fa7d6;
+  
+  --accent-azure: #93B9E8;
+  --accent-deep: #3A71A4;
+  --accent-sky: #CCE9F6;
+  --accent-highlight: #F7FCFC;
+
+  --border-subtle: rgba(147, 185, 232, 0.18);
+  --border-prominent: rgba(147, 185, 232, 0.45);
+  --border-input: rgba(147, 185, 232, 0.25);
+
+  --btn-primary-bg: #3A71A4;
+  --btn-primary-hover: #29547d;
+  --btn-primary-text: #F7FCFC;
+
+  /* Aliases for compatibility */
+  --bg-primary: var(--bg-page);
+  --bg-secondary: var(--bg-section-alt);
+  --text-primary: var(--text-heading);
+  --text-secondary: var(--text-body);
+  --background: var(--bg-page);
+  --foreground: var(--text-heading);
 }
+
+[data-theme="light"] {
+  /* Light Mode */
+  --bg-page: #F7FCFC;
+  --bg-section-alt: #EDF5FA;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F2F8FC;
+  --bg-card-subtle: #E3EFF7;
+  --bg-input: #FFFFFF;
+  
+  --text-heading: #07192C;
+  --text-body: #163654;
+  --text-muted: #285C8F;
+  
+  --accent-azure: #285C8F;
+  --accent-deep: #1A446C;
+  --accent-sky: #163654;
+  --accent-highlight: #CCE9F6;
+
+  --border-subtle: rgba(40, 92, 143, 0.22);
+  --border-prominent: rgba(40, 92, 143, 0.5);
+  --border-input: rgba(40, 92, 143, 0.35);
+
+  --btn-primary-bg: #3A71A4;
+  --btn-primary-hover: #29547d;
+  --btn-primary-text: #F7FCFC;
+
+  /* Aliases for compatibility */
+  --bg-primary: var(--bg-page);
+  --bg-secondary: var(--bg-section-alt);
+  --text-primary: var(--text-heading);
+  --text-secondary: var(--text-body);
+  --background: var(--bg-page);
+  --foreground: var(--text-heading);
+}
+
+/* Centralized Helper Utilities */
+.bg-theme-page { background-color: var(--bg-page); }
+.bg-theme-section { background-color: var(--bg-section-alt); }
+.bg-theme-card { background-color: var(--bg-card); }
+.bg-theme-subtle { background-color: var(--bg-card-subtle); }
+.bg-theme-input { background-color: var(--bg-input); }
+
+.text-theme-heading { color: var(--text-heading); }
+.text-theme-body { color: var(--text-body); }
+.text-theme-muted { color: var(--text-muted); }
+.text-theme-azure { color: var(--accent-azure); }
+
+.border-theme-subtle { border-color: var(--border-subtle); }
+.border-theme-prominent { border-color: var(--border-prominent); }
 
 @theme inline {
   --color-background: var(--background);
@@ -19,20 +108,14 @@ html {
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #02070c;
-    --foreground: #f1f5f9;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg-page);
+  color: var(--text-heading);
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: clip;
   max-width: 100vw;
   width: 100%;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {

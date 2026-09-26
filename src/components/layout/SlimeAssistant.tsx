@@ -8,13 +8,13 @@ const RAPHAEL_QUOTES = [
   "« NOTICE » Recommended inspection: UniversalTester architecture featuring zero-dependency execution.",
   "« NOTICE » All codebases follow strict TypeScript contracts and continuous documentation synchronization.",
   "« NOTICE » E_Botar voting platform is running stable on v4.0.0 architecture.",
-  "« NOTICE » Existence Value (EP): Exceeds 1,250,000. System ready for high-scale engineering challenges.",
+  "« NOTICE » Architecture Telemetry: Zero-dependency test harnesses operating with 100% strict contracts.",
   "« NOTICE » Voice of the World protocol confirms: All micro-services verified and operational.",
 ];
 
 export const RaphaelAssistant: React.FC = () => {
   const [quoteIndex, setQuoteIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   // Auto-collapse dialogue bubble on mobile scroll to maintain viewport clarity
   useEffect(() => {
@@ -44,42 +44,42 @@ export const RaphaelAssistant: React.FC = () => {
     >
       {/* Speech Bubble - Floats directly ABOVE the avatar without displacing it horizontally */}
       {isOpen && (
-        <div className="mb-3 relative w-[calc(100vw-2.5rem)] sm:w-80 max-w-[340px] bg-[#040d16]/95 border border-sky-500/40 rounded-2xl p-4 text-xs text-sky-100 shadow-[0_0_25px_rgba(56,189,248,0.25)] backdrop-blur-md animate-in fade-in slide-in-from-bottom-2 duration-200">
-          <div className="flex items-center justify-between pb-2 mb-2 border-b border-sky-950">
-            <div className="flex items-center gap-1.5 text-amber-400 font-mono text-[10px] tracking-wider uppercase font-bold">
-              <Sparkles className="w-3 h-3 text-amber-400 animate-spin" style={{ animationDuration: "8s" }} />
+        <div className="mb-3 relative w-[calc(100vw-2.5rem)] sm:w-80 max-w-[340px] bg-[var(--bg-card)] border border-[#93B9E8]/40 rounded-2xl p-4 text-xs text-[var(--text-secondary)] shadow-[0_0_25px_rgba(147,185,232,0.25)] backdrop-blur-md animate-in fade-in slide-in-from-bottom-2 duration-200">
+          <div className="flex items-center justify-between pb-2 mb-2 border-b border-[var(--border-subtle)]">
+            <div className="flex items-center gap-1.5 text-[#93B9E8] font-mono text-[10px] tracking-wider uppercase font-bold">
+              <Sparkles className="w-3 h-3 text-[#93B9E8] animate-spin" style={{ animationDuration: "8s" }} />
               <span>VOICE OF THE WORLD</span>
             </div>
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="text-slate-400 hover:text-white p-1 rounded-md hover:bg-slate-800/60 transition-colors"
+              className="text-[var(--text-muted)] hover:text-[var(--text-heading)] p-1 rounded-md hover:bg-[var(--bg-card-subtle)] transition-colors"
               aria-label="Dismiss message"
             >
               <X className="w-3.5 h-3.5" />
             </button>
           </div>
 
-          <div className="text-[11px] font-mono leading-relaxed text-slate-200 min-h-[2.5rem]">
+          <div className="text-[11px] font-mono leading-relaxed text-[var(--text-secondary)] min-h-[2.5rem]">
             {RAPHAEL_QUOTES[quoteIndex]}
           </div>
 
-          <div className="mt-3 pt-2 border-t border-sky-950 flex items-center justify-between">
+          <div className="mt-3 pt-2 border-t border-[var(--border-subtle)] flex items-center justify-between">
             <button
               type="button"
               onClick={handleNextQuote}
-              className="inline-flex items-center gap-1 text-[10px] text-amber-400 hover:text-amber-300 font-mono tracking-wide transition-colors group"
+              className="inline-flex items-center gap-1 text-[10px] text-[#93B9E8] hover:text-[#CCE9F6] font-mono tracking-wide transition-colors group"
             >
               <span>Next Telemetry Insight</span>
               <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
             </button>
-            <span className="text-[9px] font-mono text-slate-400">
+            <span className="text-[9px] font-mono text-[var(--text-muted)]">
               {quoteIndex + 1}/{RAPHAEL_QUOTES.length}
             </span>
           </div>
 
           {/* Bubble Tail pointing directly down at the Raphael Core Orb */}
-          <div className="absolute -bottom-1.5 left-7 w-3 h-3 bg-[#040d16] border-r border-b border-sky-500/40 rotate-45" />
+          <div className="absolute -bottom-1.5 left-7 w-3 h-3 bg-[var(--bg-card)] border-r border-b border-[#93B9E8]/40 rotate-45" />
         </div>
       )}
 

@@ -7,6 +7,48 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.2.0] - 2026-09-26
+
+### 📦 Component & File Version Matrix
+| File / Module | Version | Layer | Primary Update & Role |
+| :--- | :--- | :--- | :--- |
+| [`globals.css`](file:///d:/System%20Projects/JAJulveLabs/src/app/globals.css) | `v1.2.0` | Styling & Tokens | Centralized Rimuru Slime design system (`#040d16` to `#F7FCFC`), `[data-theme="light"]` dual mode, semantic utilities |
+| [`page.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/app/page.tsx) | `v1.2.0` | App Canvas | Dynamic CSS token bindings (`--bg-primary`, `--text-primary`), selection styling, theme color transitions |
+| [`portfolioSchema.ts`](file:///d:/System%20Projects/JAJulveLabs/src/lib/schemas/portfolioSchema.ts) | `v1.2.0` | Zod Validation | Added `TelemetryMetricSchema`, `systemBadge`, and made gamey stats optional for professional telemetry |
+| [`portfolioData.ts`](file:///d:/System%20Projects/JAJulveLabs/src/data/portfolioData.ts) | `v1.2.0` | Data Layer | Professionalized profile copy, added 4 telemetry metrics nodes, decoupled EP values in favor of system badges |
+| [`Navbar.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/Navbar.tsx) | `v1.2.0` | Layout | Added dual-mode Light/Dark theme toggle (Sun/Moon), tokenized navigation pills, and mobile action bar |
+| [`TopTicker.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/TopTicker.tsx) | `v1.1.2` | Layout | Styled with design tokens (`--bg-section-alt`, `--border-subtle`), azure notice beacon, and smooth color transitions |
+| [`Footer.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/Footer.tsx) | `v1.2.0` | Layout | Integrated custom Rimuru vector slime orb with SVG radial gradient, displayed `v1.2.0` version badge |
+| [`SlimeAssistant.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/SlimeAssistant.tsx) | `v1.1.3` | Layout | Bound speech bubble to design tokens (`--bg-card`, `--text-secondary`, `--border-subtle`), azure accents |
+| [`HeroSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/hero/HeroSection.tsx) | `v1.2.0` | Feature UI | 3-column asymmetric layout with interactive floating cards (UniversalTester, Web, AI), 4-node telemetry strip |
+| [`TensuraSkillsMatrix.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/skills/TensuraSkillsMatrix.tsx) | `v1.2.0` | Feature UI | Replaced green/gold palettes with Deep Blue & Azure aura themes, modernized category tabs & cards |
+| [`ProjectsSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/projects/ProjectsSection.tsx) | `v1.2.0` | Feature UI | Standardized system badges (`systemBadge`), tokenized background cards, azure action CTAs |
+| [`EvolutionSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/evolution/EvolutionSection.tsx) | `v1.1.2` | Feature UI | Replaced emerald nodes with azure accents and tokenized cards (`--bg-card`, `--border-subtle`) |
+| [`ContactSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/contact/ContactSection.tsx) | `v1.1.2` | Feature UI | Dual-mode inputs (`--bg-input`, `--border-input`), azure contact pills, and theme-adaptive text |
+
+### Added
+- **Light & Dark Dual-Mode Theme Engine** ([`globals.css`](file:///d:/System%20Projects/JAJulveLabs/src/app/globals.css) & [`Navbar.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/Navbar.tsx)):
+  - Defined CSS custom properties under `:root` (dark default) and `[data-theme="light"]` reflecting the curated Rimuru Slime palette (`#040d16` deep navy, `#3A71A4` deep blue, `#93B9E8` azure, `#CCE9F6` sky, `#F7FCFC` pure mist).
+  - Integrated theme toggle button with `Sun` and `Moon` icons across desktop navbar and mobile drawer with local storage persistence and `document.documentElement` attribute synchronization.
+- **Architectural Telemetry Strip & Zod Schema Expansion** ([`HeroSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/hero/HeroSection.tsx), [`portfolioSchema.ts`](file:///d:/System%20Projects/JAJulveLabs/src/lib/schemas/portfolioSchema.ts), [`portfolioData.ts`](file:///d:/System%20Projects/JAJulveLabs/src/data/portfolioData.ts)):
+  - Added `TelemetryMetricSchema` to validate structured architectural proof points (`CORE ARCHITECTURE`, `TYPE CONTRACTS`, `GOVERNANCE`, `DEPLOYMENT STATUS`).
+  - Added `systemBadge` field to `ProjectItemSchema` for production-grade engineering labeling on deployed platforms.
+- **Custom Rimuru Slime Vector Branding** ([`Footer.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/Footer.tsx)):
+  - Implemented multi-layered SVG concentric orbital ring graphic with 4-stop radial gradient (`footerSlimeGrad`), pulsating aura, and official `v1.2.0` release badge.
+
+### Changed & UI Redesign
+- **Hero Section 3-Column Grid Transformation** ([`HeroSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/hero/HeroSection.tsx)):
+  - Refactored layout from a standard split into a high-density 3-column engineering dashboard: Left bio & conversion CTAs, Center interactive Raphael slime core ring, and Right floating architecture cards (`UniversalTester Core Harness`, `Next.js & TypeScript Web Platform`, `Continuous Doc Sync AI & Governance`).
+  - Rendered a bottom telemetry appraisal strip showcasing 4 responsive telemetry metric nodes.
+- **Cohesive Rimuru Slime Theme Harmonization**:
+  - Replaced high-contrast emerald and gold hues across [`TensuraSkillsMatrix.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/skills/TensuraSkillsMatrix.tsx) with unified Deep Blue, Azure, and Sky Blue accents.
+  - Modernized skills matrix category labels (`AUTONOMOUS ENGINES`, `CORE ARCHITECTURE`, `SYSTEM EXECUTION`).
+  - Replaced gamified existence values with system engineering badges across [`ProjectsSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/projects/ProjectsSection.tsx).
+- **Global Theme Variable Standardization**:
+  - Bound [`page.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/app/page.tsx), [`TopTicker.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/TopTicker.tsx), [`SlimeAssistant.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/components/layout/SlimeAssistant.tsx), [`EvolutionSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/evolution/EvolutionSection.tsx), and [`ContactSection.tsx`](file:///d:/System%20Projects/JAJulveLabs/src/features/contact/ContactSection.tsx) to centralized CSS variables (`--bg-card`, `--bg-section-alt`, `--border-subtle`, `--text-heading`, `--text-body`, `--text-muted`), ensuring instantaneous, glitch-free light/dark switching.
+
+---
+
 ## [1.1.2] - 2026-09-13
 
 ### Fixed

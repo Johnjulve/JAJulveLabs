@@ -19,7 +19,8 @@ export const ProjectItemSchema = z.object({
   title: z.string(),
   tagline: z.string(),
   classification: z.string(),
-  epValue: z.string(),
+  systemBadge: z.string().default("Verified Architecture"),
+  epValue: z.string().optional(),
   description: z.string(),
   architectureHighlights: z.array(z.string()),
   techStack: z.array(z.string()),
@@ -48,13 +49,21 @@ export const ProfileHeadlineSchema = z.object({
   rest: z.string(),
 });
 
+export const TelemetryMetricSchema = z.object({
+  label: z.string(),
+  value: z.string(),
+  detail: z.string(),
+});
+
 export const ProfileSchema = z.object({
   name: z.string(),
   alias: z.string(),
   title: z.string(),
-  rank: z.string(),
-  existenceValue: z.string(),
-  epProgress: z.number().min(0).max(100),
+  roleBadge: z.string(),
+  rank: z.string().optional(),
+  existenceValue: z.string().optional(),
+  epProgress: z.number().min(0).max(100).optional(),
+  telemetryMetrics: z.array(TelemetryMetricSchema).default([]),
   status: z.string(),
   location: z.string(),
   headline: ProfileHeadlineSchema,

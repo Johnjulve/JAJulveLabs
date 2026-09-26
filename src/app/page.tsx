@@ -26,7 +26,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#02070c] text-slate-100 selection:bg-emerald-500 selection:text-slate-950">
+    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] selection:bg-[#93B9E8] selection:text-[#040b14] transition-colors duration-300">
       {/* Top Cybernetic Mana Scroll Progress Bar */}
       <ScrollProgressBar />
 
