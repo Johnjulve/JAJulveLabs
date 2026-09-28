@@ -48,7 +48,7 @@ const rawPortfolioData = {
     },
     tagline: "IMAGINATION & RIGOR",
     subheadline: "ARCHITECTING RESILIENT HIGH-PERFORMANCE SYSTEMS",
-    bio: "Specializing in polyglot test execution harnesses, modular full-stack web platforms, and continuous engineering discipline. Turning complex distributed requirements into elegant, type-safe, and self-documenting codebases.",
+    bio: "Specializing in cross-language test execution harnesses, modular full-stack web platforms, and continuous engineering discipline. Turning complex distributed requirements into elegant, type-safe, and self-documenting codebases.",
     socials: {
       github: "https://github.com/Johnjulve",
       linkedin: "https://linkedin.com",
@@ -98,7 +98,7 @@ const rawPortfolioData = {
         category: "Extra",
         iconName: "Terminal",
         proficiency: 94,
-        description: "Polyglot test harnesses, Pytest, Vitest, and unified JSON reporter streams.",
+        description: "Cross-language test harnesses, Pytest, Vitest, and unified JSON reporter streams.",
         tags: ["UniversalTester", "Vitest", "Pytest", "Load Testing"],
       },
       {
@@ -142,7 +142,7 @@ const rawPortfolioData = {
         iconName: "Binary",
         proficiency: 96,
         description: "Cross-ecosystem runner executing algorithm benchmarks and multi-language suites without external dependencies.",
-        tags: ["Multi-Adapter", "Polyglot", "Zero-Dependency"],
+        tags: ["Multi-Adapter", "Cross-Language", "Zero-Dependency"],
       },
     ] as SkillItem[],
   },
@@ -151,9 +151,9 @@ const rawPortfolioData = {
     {
       id: "universal-tester",
       title: "UniversalTester",
-      tagline: "Autonomous Polyglot Test Harness & Benchmarking Engine",
+      tagline: "Autonomous Cross-Language Test Harness & Benchmarking Engine",
       classification: "System Infrastructure",
-      systemBadge: "Native Zero-Dep Core • Polyglot Adapters",
+      systemBadge: "Native Zero-Dep Core • Cross-Language Adapters",
       description:
         "A modular test execution engine featuring a hybrid architecture: a dependency-free native testing engine for algorithm & logic tests paired with an extensible multi-language adapter framework (Python, Node.js/TypeScript, Java, PHP).",
       architectureHighlights: [

@@ -280,7 +280,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
                 </div>
               </div>
               <p className="text-[11px] text-[var(--text-secondary)] font-light mt-2 leading-relaxed">
-                Zero-dependency polyglot test execution framework.
+                Zero-dependency cross-language test execution framework.
               </p>
             </div>
 
